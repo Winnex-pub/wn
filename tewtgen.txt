@@ -1,0 +1,32 @@
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Winnex-pub/LibSource/main/winnexlib.txt"))()
+
+
+
+
+
+library.rank = "Free"
+local Wm = library:Watermark("Winnex.pub| " .. library:GetUsername() .. " | Rank: " .. library.rank)
+local FpsWm = Wm:AddWatermark("fps: " .. library.fps)
+coroutine.wrap(function()
+    while wait(.75) do
+        FpsWm:Text("fps: " .. library.fps)
+    end
+end)()
+library.title = "Winnex.pub"
+
+library:Introduction()
+wait(1)
+local Init = library:Init()
+
+--Tabs & Sections
+local Tab1 = Init:NewTab("Aim")
+local Section1 = Tab1:NewSection("Aimlock")
+local Tab2 = Init:NewTab("Visuals")
+local Section2 = Tab2:NewSection("ESP")
+local Tab3 = Init:NewTab("Misc")
+local Section3 = Tab3:NewSection("Camera")
+local Slider1 = Tab3:NewSlider("Field Of View", "", true, "/", {min = 40, max = 120, default = 20}, function(value)
+game.Workspace.CurrentCamera.FieldOfView  = value 
+end)
+local Button1 = Tab1:NewButton("Button", function()
+end)
